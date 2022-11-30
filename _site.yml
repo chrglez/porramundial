@@ -1,0 +1,13 @@
+name: porra_mundial
+output_dir: docs
+navbar:
+  title: Casificación Porra
+  left:
+  - text: Clasificación mundial
+    href: mundial.html
+  - text: Porra
+    href: porra.html
+output:
+  html_document:
+    theme: yeti
+    highlight: tango

@@ -1,0 +1,54 @@
+---
+title: "Clasificación mundial"
+---
+
+
+```{r opciones, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+# Grupo A
+```{r}
+kbl(tablas[[1]]) %>% 
+    kable_styling(full_width = F)
+```
+
+# Grupo B
+```{r}
+kbl(tablas[[2]]) %>% 
+    kable_styling(full_width = F)
+```
+
+# Grupo C
+```{r}
+kbl(tablas[[3]]) %>% 
+    kable_styling(full_width = F)
+```
+
+# Grupo D
+```{r}
+kbl(tablas[[4]]) %>% 
+    kable_styling(full_width = F)
+```
+# Grupo E
+```{r}
+kbl(tablas[[5]]) %>% 
+    kable_styling(full_width = F)
+```
+# Grupo F
+```{r}
+kbl(tablas[[6]]) %>% 
+    kable_styling(full_width = F)
+```
+# Grupo G
+```{r}
+kbl(tablas[[7]]) %>% 
+    kable_styling(full_width = F)
+```
+
+# Grupo H
+```{r}
+kbl(tablas[[8]]) %>% 
+    kable_styling(full_width = F)
+```

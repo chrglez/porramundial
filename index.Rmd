@@ -1,0 +1,42 @@
+---
+title: "Porra mundial Quatar 2022"
+---
+
+```{r, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r codigo}
+
+
+source("code/rvest_clasificacion.r")
+
+library(kableExtra, quietly = TRUE)
+
+porra <- readxl::read_excel("data/porra_Qatar.xlsx",
+                            sheet = "apuestas",
+                            range = "B1:Z32")
+
+porra_list <- list(octavos = porra %>% slice(1:16),
+                   cuartos = porra %>% slice(17:24),
+                   semis = porra %>% slice(25:28),
+                   final = porra %>% slice(29:30),
+                   camppeon = porra %>% slice(31))
+
+
+
+equipos_octavos <- map_df(tablas, ~ .x %>% slice(1:2)) %>% 
+    pull(`Selección`) %>% 
+    stringr::str_remove("[A-Z]{3}") %>% 
+    stringr::str_trim()
+
+
+puntos <- map_int(porra_list[["octavos"]], ~ .x %in% equipos_octavos %>% sum)
+
+kbl(data.frame(Puntos = puntos) %>% 
+                 arrange(desc(puntos))) %>% 
+       kable_paper(full_width = F)
+```
+
+Hecho con `r emoji::emoji("heart")` y `r emoji::emoji("cafe")` por Christian Glez.

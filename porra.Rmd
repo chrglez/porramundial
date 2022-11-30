@@ -1,0 +1,48 @@
+---
+title: "Porra"
+---
+
+
+```{r opciones, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+
+```
+
+
+## Octavos
+```{r}
+porra_list[["octavos"]] %>% 
+    mutate(across(everything(),
+                  ~ cell_spec(.x,"html",
+                                background = ifelse(.x %in% equipos_octavos, "green", ""),
+                                color = ifelse(.x %in% equipos_octavos, "white", "")))) %>% 
+    kbl(format = "html", escape = F) %>% 
+    kable_paper(full_width = F)
+```
+
+## Cuartos
+```{r}
+kbl(porra %>% slice(17:24)) %>% 
+    kable_paper(full_width = F)
+```
+
+## Semifinales
+```{r}
+kbl(porra %>% slice(25:28)) %>% 
+    kable_paper(full_width = F)
+```
+
+## Final
+```{r}
+kbl(porra %>% slice(29:30)) %>% 
+    kable_paper(full_width = F)
+```
+
+## CAMPEÓN
+```{r}
+kbl(porra %>% slice(30)) %>% 
+    kable_paper(full_width = F)
+```
+
+
