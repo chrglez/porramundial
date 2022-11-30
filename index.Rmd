@@ -29,7 +29,8 @@ porra_list <- list(octavos = porra %>% slice(1:16),
 equipos_octavos <- map_df(tablas, ~ .x %>% slice(1:2)) %>% 
     pull(`Selección`) %>% 
     stringr::str_remove("[A-Z]{3}") %>% 
-    stringr::str_trim()
+    stringr::str_trim() %>% 
+    stringr::str_replace("Estados Unidos", "EEUU")
 
 
 puntos <- map_int(porra_list[["octavos"]], ~ .x %in% equipos_octavos %>% sum)
