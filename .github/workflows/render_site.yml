@@ -24,6 +24,7 @@ jobs:
           install.packages("purrr")
           install.packages("kableExtra")
           install.packages("emoji")
+          install.packages("stringr")
         shell: Rscript {0}
 
       - name: Render Site
