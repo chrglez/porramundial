@@ -1,5 +1,5 @@
 ---
-title: "Porra mundial Quatar 2022"
+title: "Porra mundial `r emo::flag('Qatar')` Catar 2022"
 ---
 
 ```{r, include=FALSE}
