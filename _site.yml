@@ -1,7 +1,7 @@
 name: porra_mundial
 output_dir: docs
 navbar:
-  title: Casificación Porra
+  title: Clasificación Porra
   left:
   - text: Clasificación mundial
     href: mundial.html
