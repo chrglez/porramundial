@@ -23,25 +23,29 @@ porra_list[["octavos"]] %>%
 
 ## Cuartos
 ```{r}
-kbl(porra %>% slice(17:24)) %>% 
+porra_list[["cuartos"]] %>% 
+kbl() %>% 
     kable_paper(full_width = F)
 ```
 
 ## Semifinales
 ```{r}
-kbl(porra %>% slice(25:28)) %>% 
+porra_list[["semis"]] %>% 
+kbl() %>% 
     kable_paper(full_width = F)
 ```
 
 ## Final
 ```{r}
-kbl(porra %>% slice(29:30)) %>% 
+porra_list[["final"]] %>% 
+kbl() %>% 
     kable_paper(full_width = F)
 ```
 
 ## CAMPEÓN
 ```{r}
-kbl(porra %>% slice(30)) %>% 
+porra_list[["campeon"]] %>%
+kbl() %>% 
     kable_paper(full_width = F)
 ```
 

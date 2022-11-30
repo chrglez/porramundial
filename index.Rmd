@@ -22,7 +22,7 @@ porra_list <- list(octavos = porra %>% slice(1:16),
                    cuartos = porra %>% slice(17:24),
                    semis = porra %>% slice(25:28),
                    final = porra %>% slice(29:30),
-                   camppeon = porra %>% slice(31))
+                   campeon = porra %>% slice(31))
 
 
 
