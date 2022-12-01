@@ -36,7 +36,8 @@ equipos_octavos <- map_df(tablas, ~ .x %>% slice(1:2)) %>%
 puntos <- map_int(porra_list[["octavos"]], ~ .x %in% equipos_octavos %>% sum)
 
 kbl(data.frame(Puntos = puntos) %>% 
-                 arrange(desc(puntos))) %>% 
+                 arrange(desc(puntos)),
+    caption = paste("Actualizado a", Sys.time())) %>% 
        kable_paper(full_width = F)
 ```
 
