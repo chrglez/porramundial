@@ -4,7 +4,7 @@ title: "Porra mundial `r emoji::flag('Qatar')` Catar 2022"
 
 ```{r, include=FALSE}
 
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 ```
 
 ```{r codigo}
@@ -33,12 +33,14 @@ equipos_octavos <- map_df(tablas, ~ .x %>% slice(1:2)) %>%
     stringr::str_replace("Estados Unidos", "EEUU")
 
 
+
+
 puntos <- map_int(porra_list[["octavos"]], ~ .x %in% equipos_octavos %>% sum)
 
 kbl(data.frame(Puntos = puntos) %>% 
-                 arrange(desc(puntos)),
-    caption = paste("Actualizado a", Sys.time())) %>% 
-       kable_paper(full_width = F)
+                 arrange(desc(puntos))) %>% 
+       kable_paper(full_width = F) %>% 
+    footnote(general = paste("Actualizado a", Sys.time()))
 ```
 
 Hecho con `r emoji::emoji("heart")` y `r emoji::emoji("cafe")` por Christian Glez.
