@@ -1,6 +1,4 @@
 on:
-  push:
-    branches: master
   schedule:
     - cron: '30 17,21 * * *'
 
@@ -25,6 +23,7 @@ jobs:
           install.packages("kableExtra")
           install.packages("emoji")
           install.packages("stringr")
+          install.packages("readxl")
         shell: Rscript {0}
 
       - name: Render Site
