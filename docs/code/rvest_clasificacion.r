@@ -8,9 +8,15 @@ dict_countries <- read.csv("https://gist.githubusercontent.com/ideaalab/7caf20bc
 
 contenido <- rvest::read_html("https://es.wikipedia.org/wiki/Copa_Mundial_de_F%C3%BAtbol_de_2022")
 
-tablas <- contenido %>%
+tablas_a <- contenido %>%
 html_elements('.noprint.AP.rellink + table') %>%
 html_table()
+
+tablas_b <- contenido %>%
+    html_elements('.thumb.tright + table') %>%
+    html_table()
+
+tablas <- c(tablas_b, tablas_a)
 
 octavos <- contenido %>%
     html_elements('.vevent + table')  %>%
