@@ -2,7 +2,7 @@
 title: "Clasificación mundial"
 ---
 
-<!-- # {.tabset} -->
+# {.tabset .tabset-pills}
 
 ## Fase de grupos 
 
@@ -56,10 +56,10 @@ kbl(tablas[[8]]) %>%
     kable_styling(full_width = F)
 ```
 
-<!-- ## Octavos -->
+## Octavos {.active}
 
-<!-- ```{r} -->
-<!-- kbl(partidos_octavos) %>%  -->
-<!--     kable_styling(full_width = F) -->
-<!-- ``` -->
+```{r}
+kbl(partidos_octavos, col.names = NULL) %>%
+    kable_styling(full_width = F)
+```
 

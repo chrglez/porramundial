@@ -22,8 +22,11 @@ octavos <- contenido %>%
     html_elements('.vevent + table')  %>%
     html_table()
 
-partidos_octavos <- map_df(octavos[51:56],~ .x %>% select(c(2,4)) %>% slice(1))
+partidos_octavos <- map_df(octavos[49:56],~ .x %>% select(c(2:4)) %>% slice(1))
 
-partidos_cuartos <- map_df(octavos[57:60],~ .x %>% select(c(2,4)) %>% slice(1))
+partidos_cuartos <- map_df(octavos[57:60],~ .x %>% select(c(2:4)) %>% slice(1))
+
+equipos_cuartos <- unlist(partidos_cuartos[,c(1,3)]) %>% set_names(rep("",8)) %>% stringr::str_trim() %>% 
+    stringr::str_replace("Estados Unidos", "EEUU")
 
 partidos_semis <- map_df(octavos[61:62],~ .x %>% select(c(2,4)) %>% slice(1))

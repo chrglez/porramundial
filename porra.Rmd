@@ -24,7 +24,11 @@ porra_list[["octavos"]] %>%
 ## Cuartos
 ```{r}
 porra_list[["cuartos"]] %>% 
-kbl() %>% 
+    mutate(across(everything(),
+                  ~ cell_spec(.x,"html",
+                                background = ifelse(.x %in% equipos_cuartos, "green", ""),
+                                color = ifelse(.x %in% equipos_cuartos, "white", "")))) %>% 
+    kbl(format = "html", escape = F) %>% 
     kable_paper(full_width = F)
 ```
 

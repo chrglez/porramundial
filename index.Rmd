@@ -35,7 +35,11 @@ equipos_octavos <- map_df(tablas, ~ .x %>% slice(1:2)) %>%
 
 
 
-puntos <- map_int(porra_list[["octavos"]], ~ .x %in% equipos_octavos %>% sum)
+puntos_octavos <- map_int(porra_list[["octavos"]], ~ .x %in% equipos_octavos %>% sum)
+puntos_cuartos <- map_int(porra_list[["cuartos"]], ~ .x %in% equipos_cuartos %>% sum)*2
+
+              puntos <- puntos_octavos + puntos_cuartos
+              
 
 kbl(data.frame(Puntos = puntos) %>% 
                  arrange(desc(puntos))) %>% 
