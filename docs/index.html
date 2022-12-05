@@ -13,7 +13,7 @@
 
 <title>Porra mundial 🇶🇦 Catar 2022</title>
 
-<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
@@ -168,8 +168,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "\e259";
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -177,9 +177,16 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "\e258";
-  font-family: 'Glyphicons Halflings';
+  content: "&#xe258;";
   border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -268,6 +275,14 @@ Puntos
 <tbody>
 <tr>
 <td style="text-align:left;">
+ALEK
+</td>
+<td style="text-align:right;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 JM
 </td>
 <td style="text-align:right;">
@@ -276,7 +291,7 @@ JM
 </tr>
 <tr>
 <td style="text-align:left;">
-ALEK
+NORBER
 </td>
 <td style="text-align:right;">
 20
@@ -340,7 +355,7 @@ OCTAVIO_2
 </tr>
 <tr>
 <td style="text-align:left;">
-NORBER
+CARMEN
 </td>
 <td style="text-align:right;">
 18
@@ -349,6 +364,14 @@ NORBER
 <tr>
 <td style="text-align:left;">
 NANCY
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PINILLA
 </td>
 <td style="text-align:right;">
 18
@@ -373,6 +396,14 @@ EMILIO
 <tr>
 <td style="text-align:left;">
 FEDE
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+YERAY SCJ
 </td>
 <td style="text-align:right;">
 18
@@ -412,31 +443,7 @@ GABRI
 </tr>
 <tr>
 <td style="text-align:left;">
-CARMEN
-</td>
-<td style="text-align:right;">
-16
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-PINILLA
-</td>
-<td style="text-align:right;">
-16
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
 JORGE
-</td>
-<td style="text-align:right;">
-16
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-YERAY SCJ
 </td>
 <td style="text-align:right;">
 16
@@ -475,7 +482,7 @@ CHRISTIAN
 </tr>
 <tr>
 <td style="padding: 0; " colspan="100%">
-<sup></sup> Actualizado a 2022-12-05 17:38:54
+<sup></sup> Actualizado a 2022-12-05 18:27:59
 </td>
 </tr>
 </tfoot>
