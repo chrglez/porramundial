@@ -13,7 +13,7 @@
 
 <title>Porra mundial 🇶🇦 Catar 2022</title>
 
-<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
@@ -168,8 +168,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -177,16 +177,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -278,7 +271,7 @@ Puntos
 ALEK
 </td>
 <td style="text-align:right;">
-22
+24
 </td>
 </tr>
 <tr>
@@ -286,7 +279,7 @@ ALEK
 JM
 </td>
 <td style="text-align:right;">
-20
+22
 </td>
 </tr>
 <tr>
@@ -294,7 +287,7 @@ JM
 NORBER
 </td>
 <td style="text-align:right;">
-20
+22
 </td>
 </tr>
 <tr>
@@ -302,7 +295,7 @@ NORBER
 MIGUEL
 </td>
 <td style="text-align:right;">
-20
+22
 </td>
 </tr>
 <tr>
@@ -310,7 +303,7 @@ MIGUEL
 J. CAMPOS
 </td>
 <td style="text-align:right;">
-19
+21
 </td>
 </tr>
 <tr>
@@ -318,7 +311,7 @@ J. CAMPOS
 OCTAVIO_1
 </td>
 <td style="text-align:right;">
-19
+21
 </td>
 </tr>
 <tr>
@@ -326,7 +319,7 @@ OCTAVIO_1
 UBAY
 </td>
 <td style="text-align:right;">
-19
+21
 </td>
 </tr>
 <tr>
@@ -334,7 +327,7 @@ UBAY
 IVAN SCJ
 </td>
 <td style="text-align:right;">
-19
+21
 </td>
 </tr>
 <tr>
@@ -342,7 +335,7 @@ IVAN SCJ
 JL JIMÉNEZ
 </td>
 <td style="text-align:right;">
-18
+20
 </td>
 </tr>
 <tr>
@@ -350,7 +343,87 @@ JL JIMÉNEZ
 OCTAVIO_2
 </td>
 <td style="text-align:right;">
-18
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NANCY
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PINILLA
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JULIAN
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+EMILIO
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FEDE
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+YERAY SCJ
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JULIO
+</td>
+<td style="text-align:right;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+POLO
+</td>
+<td style="text-align:right;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JL EUGENIO
+</td>
+<td style="text-align:right;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GABRI
+</td>
+<td style="text-align:right;">
+19
 </td>
 </tr>
 <tr>
@@ -363,90 +436,10 @@ CARMEN
 </tr>
 <tr>
 <td style="text-align:left;">
-NANCY
-</td>
-<td style="text-align:right;">
-18
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-PINILLA
-</td>
-<td style="text-align:right;">
-18
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-JULIAN
-</td>
-<td style="text-align:right;">
-18
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-EMILIO
-</td>
-<td style="text-align:right;">
-18
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-FEDE
-</td>
-<td style="text-align:right;">
-18
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-YERAY SCJ
-</td>
-<td style="text-align:right;">
-18
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-JULIO
-</td>
-<td style="text-align:right;">
-17
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-POLO
-</td>
-<td style="text-align:right;">
-17
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-JL EUGENIO
-</td>
-<td style="text-align:right;">
-17
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-GABRI
-</td>
-<td style="text-align:right;">
-17
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
 JORGE
 </td>
 <td style="text-align:right;">
-16
+18
 </td>
 </tr>
 <tr>
@@ -454,7 +447,7 @@ JORGE
 DAVID
 </td>
 <td style="text-align:right;">
-15
+17
 </td>
 </tr>
 <tr>
@@ -462,7 +455,7 @@ DAVID
 AYTHAMI
 </td>
 <td style="text-align:right;">
-12
+14
 </td>
 </tr>
 <tr>
@@ -470,7 +463,7 @@ AYTHAMI
 CHRISTIAN
 </td>
 <td style="text-align:right;">
-11
+13
 </td>
 </tr>
 </tbody>
@@ -482,7 +475,7 @@ CHRISTIAN
 </tr>
 <tr>
 <td style="padding: 0; " colspan="100%">
-<sup></sup> Actualizado a 2022-12-05 18:27:59
+<sup></sup> Actualizado a 2022-12-05 21:40:03
 </td>
 </tr>
 </tfoot>
