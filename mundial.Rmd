@@ -63,7 +63,7 @@ kbl(partidos_octavos, col.names = NULL) %>%
     kable_styling(full_width = F)
 ```
 
-## Octavos {.active}
+## Cuartos {.active}
 
 ```{r}
 kbl(partidos_cuartos, col.names = NULL) %>%
