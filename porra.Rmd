@@ -35,7 +35,11 @@ porra_list[["cuartos"]] %>%
 ## Semifinales
 ```{r}
 porra_list[["semis"]] %>% 
-kbl() %>% 
+    mutate(across(everything(),
+                  ~ cell_spec(.x,"html",
+                                background = ifelse(.x %in% equipos_semis, "green", ""),
+                                color = ifelse(.x %in% equipos_semis, "white", "")))) %>% 
+    kbl(format = "html", escape = F) %>% 
     kable_paper(full_width = F)
 ```
 

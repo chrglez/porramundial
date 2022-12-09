@@ -56,10 +56,17 @@ kbl(tablas[[8]]) %>%
     kable_styling(full_width = F)
 ```
 
-## Octavos {.active}
+## Octavos {.tabset}
 
 ```{r}
 kbl(partidos_octavos, col.names = NULL) %>%
+    kable_styling(full_width = F)
+```
+
+## Octavos {.active}
+
+```{r}
+kbl(partidos_cuartos, col.names = NULL) %>%
     kable_styling(full_width = F)
 ```
 
