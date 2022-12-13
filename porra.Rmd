@@ -46,7 +46,11 @@ porra_list[["semis"]] %>%
 ## Final
 ```{r}
 porra_list[["final"]] %>% 
-kbl() %>% 
+    mutate(across(everything(),
+                  ~ cell_spec(.x,"html",
+                                background = ifelse(.x %in% equipos_final, "green", ""),
+                                color = ifelse(.x %in% equipos_final, "white", "")))) %>% 
+    kbl(format = "html", escape = F) %>% 
     kable_paper(full_width = F)
 ```
 

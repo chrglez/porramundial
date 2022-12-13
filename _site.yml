@@ -7,6 +7,7 @@ navbar:
     href: mundial.html
   - text: Porra
     href: porra.html
+
 output:
   html_document:
     theme: yeti
