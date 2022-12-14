@@ -2,6 +2,14 @@
 title: "Posibles resultados"
 ---
 
+```{r, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+```{r}
+source("code/rvest_clasificacion.r")
+```
 
 
 ### Campeón `r emoji::flag("Argentina")` Finalista `r emoji::flag("France")`

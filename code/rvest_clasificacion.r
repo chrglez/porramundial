@@ -84,7 +84,7 @@ puntos_final <- map_int(porra_list[["final"]], ~ .x %in% equipos_final %>% sum)*
 puntos <- puntos_octavos + puntos_cuartos + puntos_semis
 
 
-
+clas <-  data.frame(Puntos = puntos)
 
 sims <- rbind(expand.grid(equipos_semis[c(1,3)],equipos_semis[c(2,4)], stringsAsFactors = FALSE),expand.grid(equipos_semis[c(2,4)],equipos_semis[c(1,3)], stringsAsFactors = FALSE)) %>% set_names(c("campeon",'finalista'))
 
