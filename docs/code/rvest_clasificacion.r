@@ -50,8 +50,6 @@ equipos_final <- unlist(partidos_final[,c(1,3)]) %>% set_names(rep("",2)) %>% st
 
 
 
-sims <- rbind(expand.grid(equipos_semis[c(1,3)],equipos_semis[c(2,4)], stringsAsFactors = FALSE),
-              expand.grid(equipos_semis[c(2,4)],equipos_semis[c(1,3)]), stringsAsFactors = FALSE)
 
 
 porra <- readxl::read_excel("data/porra_Qatar.xlsx",
@@ -81,7 +79,7 @@ puntos_semis <- map_int(porra_list[["semis"]], ~ .x %in% equipos_semis %>% sum)*
 puntos_final <- map_int(porra_list[["final"]], ~ .x %in% equipos_final %>% sum)*6
 
 
-puntos <- puntos_octavos + puntos_cuartos + puntos_semis
+puntos <- puntos_octavos + puntos_cuartos + puntos_semis + puntos_final
 
 
 clas <-  data.frame(Puntos = puntos)
@@ -92,6 +90,7 @@ sims <- rbind(expand.grid(equipos_semis[c(1,3)],equipos_semis[c(2,4)], stringsAs
 
 
 sumas <- function(equipos_sim){
+    clas <-  data.frame(Puntos = puntos_octavos + puntos_cuartos + puntos_semis)
     puntos_final <- map_int(porra_list[["final"]], ~ .x %in% equipos_sim %>% sum)*6
     puntos_campeon <- map_int(porra_list[["campeon"]], ~.x == equipos_sim[[1]])*8
     clas_sims <- clas %>% mutate(puntos_final = puntos_final,
@@ -108,12 +107,13 @@ sims_lista <- sims %>%  transpose %>% simplify_all
 sims_lista_puntos <- map(sims_lista, sumas)
 
 calcular_prob <- function(pos){
-    probs = sims_lista %>%  keep(~ .x["campeon"] %in% equipos_final | .x["finalista"] %in% equipos_final) %>%  map(sumas) %>% map(~ .x %>% mutate(nombre = row.names(.x))) %>% map_dfr(slice,pos) %>% count(nombre) %>% mutate(prop = round(n/sum(n),4)*100) %>% select(nombre, prop)
+    
+    probs = sims_lista %>%  keep(~ .x["campeon"] %in% equipos_final & .x["finalista"] %in% equipos_final) %>%  map(sumas) %>% map(~ .x %>% mutate(nombre = row.names(.x))) %>% map_dfr(slice,pos) %>% count(nombre) %>% mutate(prop = round(n/sum(n),4)*100) %>% select(nombre, prop)
 } 
 
 probs_lista <- map(list(1,2,3), calcular_prob) %>% set_names(c("1o","2o","3o"))
 
-enpremios <- sims_lista %>%  keep(~ .x["campeon"] %in% equipos_final | .x["finalista"] %in% equipos_final) %>%  map(sumas) %>% map(~ .x %>% mutate(nombre = row.names(.x))) %>% map(slice,1:3) %>% map_df(~.x %>% group_by(nombre) %>% count() %>% ungroup()) %>% group_by(nombre) %>% count() %>% ungroup() %>% mutate(prop = round(n/4*100,2)) %>% select(nombre, prop)
+enpremios <- sims_lista %>%  keep(~ .x["campeon"] %in% equipos_final & .x["finalista"] %in% equipos_final) %>%  map(sumas) %>% map(~ .x %>% mutate(nombre = row.names(.x))) %>% map(slice,1:3) %>% map_df(~.x %>% group_by(nombre) %>% count() %>% ungroup()) %>% group_by(nombre) %>% count() %>% ungroup() %>% mutate(prop = round(n/2*100,2)) %>% select(nombre, prop)
 
 clas <-  data.frame(Puntos = puntos) %>% mutate(nombre = row.names(.))
 
