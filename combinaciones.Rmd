@@ -2,19 +2,34 @@
 title: "Posibles resultados"
 ---
 
-```{r, echo = FALSE, results='asis'}
-source("code/rvest_clasificacion.r")
 
-for (i in 1:8){
-    cat("### Opción", i,"\n\n")
-    
-    cat("\n\n#### Campeón: ", sims$Var1[i], "\U03B7", "Finalista: ", sims$Var2[i], ":fireworks:", "\n\n")
-    
-    kbl(data.frame(Puntos = puntos) %>% 
-                 arrange(desc(puntos)) %>% 
-            slice(1:3), format = "html")%>% 
-       kable_paper(full_width = F)
-    
-}
+
+### Campeón `r emoji::flag("Argentina")` Finalista `r emoji::flag("France")`
+
+```{r echo=FALSE}
+sims_lista_puntos[[1]] %>% slice(1:3)  %>% select(Puntos = PuntosTot)%>% kbl() %>% kable_paper(full_width = T)
+```
+
+
+
+### Campeón `r emoji::flag("Argentina")` Finalista `r emoji::flag("Morocco")`
+
+```{r echo=FALSE}
+sims_lista_puntos[[3]] %>% slice(1:3) %>% select(Puntos = PuntosTot) %>% kbl() %>% kable_paper(full_width = T)
+```
+
+
+
+### Campeón `r emoji::flag("France")` Finalista `r emoji::flag("Argentina")`
+
+```{r echo=FALSE}
+sims_lista_puntos[[5]] %>% slice(1:3) %>% select(Puntos = PuntosTot)%>% kbl() %>% kable_paper(full_width = T)
+```
+
+
+
+### Campeón `r emoji::flag("Morocco")` Finalista `r emoji::flag("Argentina")`
+```{r echo=FALSE}
+sims_lista_puntos[[6]] %>% slice(1:3) %>% select(Puntos = PuntosTot)%>% kbl() %>% kable_paper(full_width = T)
 ```
 

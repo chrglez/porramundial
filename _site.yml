@@ -7,6 +7,8 @@ navbar:
     href: mundial.html
   - text: Porra
     href: porra.html
+  - text: Simulaciones
+    href: combinaciones.html
 
 output:
   html_document:

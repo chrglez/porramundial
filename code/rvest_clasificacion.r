@@ -84,3 +84,56 @@ puntos_final <- map_int(porra_list[["final"]], ~ .x %in% equipos_final %>% sum)*
 puntos <- puntos_octavos + puntos_cuartos + puntos_semis
 
 
+
+
+sims <- rbind(expand.grid(equipos_semis[c(1,3)],equipos_semis[c(2,4)], stringsAsFactors = FALSE),expand.grid(equipos_semis[c(2,4)],equipos_semis[c(1,3)], stringsAsFactors = FALSE)) %>% set_names(c("campeon",'finalista'))
+
+
+
+
+sumas <- function(equipos_sim){
+    puntos_final <- map_int(porra_list[["final"]], ~ .x %in% equipos_sim %>% sum)*6
+    puntos_campeon <- map_int(porra_list[["campeon"]], ~.x == equipos_sim[[1]])*8
+    clas_sims <- clas %>% mutate(puntos_final = puntos_final,
+                                 puntos_campeon = puntos_campeon) %>% 
+        mutate(PuntosTot = Puntos + puntos_final + puntos_campeon) %>% 
+        arrange(desc(PuntosTot), desc(puntos_campeon), desc(puntos_final))
+    
+}
+
+#sims_lista <- map(list(sims, simsf), ~ transpose(.x) %>% simplify_all())
+
+sims_lista <- sims %>%  transpose %>% simplify_all
+
+sims_lista_puntos <- map(sims_lista, sumas)
+
+calcular_prob <- function(pos){
+    probs = sims_lista %>%  keep(~ .x["campeon"] %in% equipos_final | .x["finalista"] %in% equipos_final) %>%  map(sumas) %>% map(~ .x %>% mutate(nombre = row.names(.x))) %>% map_dfr(slice,pos) %>% count(nombre) %>% mutate(prop = round(n/sum(n),4)*100) %>% select(nombre, prop)
+} 
+
+probs_lista <- map(list(1,2,3), calcular_prob) %>% set_names(c("1o","2o","3o"))
+
+enpremios <- sims_lista %>%  keep(~ .x["campeon"] %in% equipos_final | .x["finalista"] %in% equipos_final) %>%  map(sumas) %>% map(~ .x %>% mutate(nombre = row.names(.x))) %>% map(slice,1:3) %>% map_df(~.x %>% group_by(nombre) %>% count() %>% ungroup()) %>% group_by(nombre) %>% count() %>% ungroup() %>% mutate(prop = round(n/4*100,2)) %>% select(nombre, prop)
+
+clas <-  data.frame(Puntos = puntos) %>% mutate(nombre = row.names(.))
+
+clas_prob <- c(list(clas), probs_lista, list(enpremios)) %>% reduce(left_join, by = "nombre") %>%  set_names("Puntos","nombre", "n1o", "n2o", "n3o", "En premios") %>% replace(is.na(.),0) %>% 
+    mutate(across(n1o:`En premios`, ~ paste(.x,"%"), .names = "t{.col}")) %>% arrange(desc(Puntos)) %>% 
+    tibble::column_to_rownames('nombre') 
+
+puntuacion <- clas_prob  %>% 
+    select(1,6:9) %>% 
+    set_names(c("Puntos","1o","2o","3o","En premios")) %>% 
+    kbl() %>% 
+    kable_paper(full_width = T) %>% 
+    column_spec(3, 
+                color = spec_color(clas_prob$n1o, end = 0.5)) %>% 
+    column_spec(4, 
+                color = spec_color(clas_prob$n2o, end = 0.5)) %>% 
+    column_spec(5, 
+                color = spec_color(clas_prob$n3o, end = 0.5)) %>% 
+    column_spec(6, 
+                color = spec_color(clas_prob$`En premios`, end = 1)) %>% 
+    footnote(general = paste("Actualizado a", Sys.time()))
+
+
