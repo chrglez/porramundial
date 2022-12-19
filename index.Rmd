@@ -8,6 +8,10 @@ title: "Porra mundial `r emoji::flag('Qatar')` Catar 2022"
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 ```
 
+## Ganador de la porra `r emoji::flag('Qatar')` Catar 2022
+
+### Enhorabuena `r rep(emoji::emoji("champagne"),3)` `r clas_prob %>%  slice(1) %>% row.names()`  
+
 ```{r codigo}
 
 

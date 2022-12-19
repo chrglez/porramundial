@@ -56,8 +56,12 @@ porra_list[["final"]] %>%
 
 ## CAMPEÓN
 ```{r}
-porra_list[["campeon"]] %>%
-kbl() %>% 
+porra_list[["campeon"]] %>% 
+    mutate(across(everything(),
+                  ~ cell_spec(.x,"html",
+                                background = ifelse(.x %in% campeon, "green", ""),
+                                color = ifelse(.x %in% campeon, "white", "")))) %>% 
+    kbl(format = "html", escape = F) %>% 
     kable_paper(full_width = F)
 ```
 

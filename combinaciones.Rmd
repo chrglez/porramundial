@@ -19,15 +19,17 @@ sims_lista_puntos[[1]] %>% slice(1:3)  %>% select(Puntos = PuntosTot)%>% kbl() %
 ```
 
 
-### Campeón `r emoji::flag("France")` Finalista `r emoji::flag("Argentina")`
-
-```{r echo=FALSE}
-sims_lista_puntos[[5]] %>% slice(1:3) %>% select(Puntos = PuntosTot)%>% kbl() %>% kable_paper(full_width = T)
-```
 
 ::: 
 
 ::: {style="color: #ccc;"}
+
+### Campeón `r emoji::flag("France")` Finalista `r emoji::flag("Argentina")`
+
+```{r echo=FALSE}
+sims_lista_puntos[[5]] %>% slice(1:3) %>% select(Puntos = PuntosTot)%>% kbl() %>% kable_paper(full_width = T) %>% row_spec(0:3, color = "darkgrey")
+```
+
 
 ### Campeón `r emoji::flag("Argentina")` Finalista `r emoji::flag("Morocco")`
 
